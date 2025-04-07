@@ -45,12 +45,12 @@ By accelerating these filters in hardware, we can enable real-time processing fo
 
 ### Task 1: Research & Design Specifications  
 **Assigned to:** Rithani & Vishnu 
-- Study digital filtering math (Gaussian kernel, grayscale formula, etc.)  
-- Choose filter coefficients, kernel dimensions (3×3), and fixed-point format
+- Study digital filtering math (Gaussian kernel, mean, etc.)  
+- Choose filter coefficients, kernel dimensions, and fixed-point format
 
 ---
 
-### Task 2: Verilog Module Development  
+### Task 2: Verilog IP Block Development
 **Assigned to:** Rithani  
 - Gaussian Blur: Implement weighted convolution logic using line buffers  
 - Moving Average: Use adder trees and bit-shift logic for fast averaging  
@@ -60,15 +60,15 @@ By accelerating these filters in hardware, we can enable real-time processing fo
 
 ### Task 3: Simulation & Testbenching  
 **Assigned to:** Vishnu
-- Write Verilog testbenches for all modules  
-- Validate outputs against MATLAB filters  
+- Write Verilog testbenches for all modules
+- Validate outputs against MATLAB filters
 - Analyze waveform timing and correctness
 
 ---
 
 ### Task 4: Pipeline Integration  
 **Assigned to:** Both  
-- Combine all filters into a streaming pipelined system  
+- Combine all filters into Pynq-Z1 FPGA using Vivado
 - Implement runtime control logic to switch between filters  
 - Create buffer system for input/output pixel synchronization
 
