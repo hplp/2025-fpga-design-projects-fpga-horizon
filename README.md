@@ -41,7 +41,7 @@ By accelerating these filters in hardware, we can enable real-time processing fo
 - Performance metrics: Frames Per Second (FPS), logic element utilization, maximum clock frequency, latency per pixel/frame, and power consumption estimates.
 
 ## Tasks:
-## 🧪 Tasks & Assignments
+## Tasks & Assignments
 
 ### Task 1: Research & Design Specifications  
 **Assigned to:** Rithani & Vishnuvartthan  
@@ -90,7 +90,7 @@ By accelerating these filters in hardware, we can enable real-time processing fo
 
 ---
 
-## ⏳ Timeline & Milestones
+## Timeline & Milestones
 
 | Week | Deliverables |
 |------|--------------|
@@ -104,7 +104,7 @@ By accelerating these filters in hardware, we can enable real-time processing fo
 
 ---
 
-## 📚 References
+## References
 
 - Gonzalez, R. C., & Woods, R. E. *Digital Image Processing*  
 - Xilinx Vivado IP & VTC Documentation  
