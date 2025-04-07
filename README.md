@@ -1,6 +1,6 @@
 
 ## Team Name: 
-(Enter your team name from Canvas)
+FPGA Horizon
 
 ## Team Members:
 - Rithani Priyanga Coimbatore Kannan (hwu6hc)
@@ -16,27 +16,29 @@ By accelerating the image filtering process on FPGA hardware, we aim to signific
 
 - Gaussian Filter
 
-- Box Filter
+- Moving Average Mean
 
-- Moving Average Convolution
-
-- Grayscale Conversion, and many others
+- Grayscale Conversion
 
 By accelerating these filters in hardware, we can enable real-time processing for applications such as live video processing, preprocessing for computer vision applications, and edge computing tasks.
 
 ## Key Objectives:
-- Objective 1
-- Objective 2
-- Objective 3
+- Design and implement common image filters (Gaussian, Moving Average, Grayscale) on an FPGA.
+- Create a pipeline architecture to process images in real time.
+- Integrate camera input and HDMI output for a live demonstration.
 
 ## Technology Stack:
-- Pynq-Z1 FPGA, 
 - Software: Xilinx Vivado, Jupyter Notebook
-- 
-
+- Hardware Platform: Xilinx FPGA development board
+- Languages: Verilog
+- Software Tools: Vivado Design Suite, ModelSim, MATLAB (for filter verification), Vitis-HLS
+- Peripheral Interfaces: Camera Module (input), HDMI/VGA (output)
 
 ## Expected Outcomes:
-(Describe what you expect to deliver at the end of the project)
+- 4 standalone Verilog filter modules: Gaussian Filter, Moving Average Filter, and Grayscale Conversion, validated using synthetic and real image data.
+- Fully functional image processing pipeline with MUX-based filter selection.
+- Real-time demonstration: Live camera input → FPGA filter pipeline → HDMI video output.
+- Performance metrics: Frames Per Second (FPS), logic element utilization, maximum clock frequency, latency per pixel/frame, and power consumption estimates.
 
 ## Tasks:
 (Describe the tasks that need to be completed. Assign students to tasks)
