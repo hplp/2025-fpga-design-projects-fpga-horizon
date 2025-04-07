@@ -31,8 +31,8 @@ By accelerating these filters in hardware, we can enable real-time processing fo
 - Software: Xilinx Vivado, Jupyter Notebook
 - Hardware Platform: Xilinx FPGA development board
 - Languages: Verilog
-- Software Tools: Vivado Design Suite, ModelSim, MATLAB (for filter verification), Vitis-HLS
-- Peripheral Interfaces: Camera Module (input), HDMI/VGA (output)
+- Software Tools: Vivado Design Suite, ModelSim, Vitis-HLS
+- Peripheral Interfaces: Camera Module (input), HDMI (output)
 
 ## Expected Outcomes:
 - 4 standalone Verilog filter modules: Gaussian Filter, Moving Average Filter, and Grayscale Conversion, validated using synthetic and real image data.
