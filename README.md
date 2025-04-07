@@ -43,22 +43,22 @@ By accelerating these filters in hardware, we can enable real-time processing fo
 ## Tasks:
 ## Tasks & Assignments
 
-### Task 1: Research & Design Specifications  
+### Task 1: Research & Design Specifications 
 **Assigned to:** Rithani & Vishnu 
-- Study digital filtering math (Gaussian kernel, mean, etc.)  
+- Study digital filtering math (Gaussian kernel, mean, etc.) 
 - Choose filter coefficients, kernel dimensions, and fixed-point format
 
 ---
 
 ### Task 2: Verilog IP Block Development
-**Assigned to:** Rithani  
-- Gaussian Blur: Implement weighted convolution logic using line buffers  
-- Moving Average: Use adder trees and bit-shift logic for fast averaging  
+**Assigned to:** Rithani 
+- Gaussian Blur: Implement weighted convolution logic using line buffers 
+- Moving Average: Use adder trees and bit-shift logic for fast averaging 
 - Grayscale: Apply fixed-point approximation of RGB-to-grayscale formula
 
 ---
 
-### Task 3: Simulation & Testbenching  
+### Task 3: Simulation & Testbenching 
 **Assigned to:** Vishnu
 - Write Verilog testbenches for all modules
 - Validate outputs against MATLAB filters
@@ -66,26 +66,26 @@ By accelerating these filters in hardware, we can enable real-time processing fo
 
 ---
 
-### Task 4: Pipeline Integration  
-**Assigned to:** Both  
+### Task 4: Pipeline Integration 
+**Assigned to:** Both 
 - Combine all filters into Pynq-Z1 FPGA using Vivado
-- Implement runtime control logic to switch between filters  
+- Implement runtime control logic to switch between filters 
 - Create buffer system for input/output pixel synchronization
 
 ---
 
-### Task 5: Hardware I/O Integration  
-**Assigned to:** Rithani  
-- Capture input from camera  
-- Format pixel stream for filter pipeline  
+### Task 5: Hardware I/O Integration 
+**Assigned to:** Rithani 
+- Capture input from camera 
+- Format pixel stream for filter pipeline 
 - Display final image to HDMI interface
 
 ---
 
-### Task 6: Optimization & Documentation  
+### Task 6: Optimization & Documentation 
 **Assigned to:** Vishnu
-- Optimize clock domains, pipeline latency, and resource usage  
-- Collect power estimates, maximum frequency, and utilization stats  
+- Optimize clock domains, pipeline latency, and resource usage 
+- Collect power estimates, maximum frequency, and utilization stats 
 - Write the final report, README, and prepare the demo video
 
 ---
@@ -98,7 +98,7 @@ By accelerating these filters in hardware, we can enable real-time processing fo
 | **Week 2** | Implement and test grayscale + moving average modules |
 | **Week 3** | Implement Gaussian filter and verify via testbenches |
 | **Week 4** | Integrate filters into a single pipelined system |
-| **Week 5** | Interface with OV7670 camera and output to HDMI |
+| **Week 5** | Interface with camera and output to HDMI |
 | **Week 6** | Run real-time tests and collect performance data |
 | **Week 7** | Optimize design, complete documentation and demonstration |
 
@@ -106,8 +106,8 @@ By accelerating these filters in hardware, we can enable real-time processing fo
 
 ## References
 
-- Gonzalez, R. C., & Woods, R. E. *Digital Image Processing*  
-- Xilinx Vivado IP & VTC Documentation  
-- OV7670 Camera Datasheet  
-- Various open-source Verilog image filter repositories  
+- Gonzalez, R. C., & Woods, R. E. *Digital Image Processing* 
+- Xilinx Vivado IP & VTC Documentation 
+- Camera Datasheet 
+- Various open-source Verilog image filter repositories 
 - MATLAB Image Processing Toolbox
