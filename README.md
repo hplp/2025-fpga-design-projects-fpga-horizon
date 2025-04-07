@@ -41,7 +41,28 @@ By accelerating these filters in hardware, we can enable real-time processing fo
 - Performance metrics: Frames Per Second (FPS), logic element utilization, maximum clock frequency, latency per pixel/frame, and power consumption estimates.
 
 ## Tasks:
-(Describe the tasks that need to be completed. Assign students to tasks)
+## Phase 1 :
 
+- Finalize project proposal and team roles.
+
+- Review literature on FPGA-based image filtering.
+
+## Phase 2 :
+
+- Develop individual Verilog modules for each filter.
+
+- Implement testbenches to verify functionality.
+
+## Phase 3 :
+
+- Integrate all modules into a single pipeline.
+
+- Implement user controls for selecting filters.
+
+## Phase 4 :
+
+- Test the design on FPGA hardware.
+
+- Optimize for performance and resource usage.
 ## Timeline:
 (Provide a timeline or milestones for the project)
