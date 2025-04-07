@@ -86,7 +86,7 @@ By accelerating these filters in hardware, we can enable real-time processing fo
 **Assigned to:** Vishnu
 - Optimize clock domains, pipeline latency, and resource usage 
 - Collect power estimates, maximum frequency, and utilization stats 
-- Write the final report, README, and prepare the demo video
+
 
 ---
 
