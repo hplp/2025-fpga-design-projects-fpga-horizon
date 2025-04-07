@@ -41,28 +41,73 @@ By accelerating these filters in hardware, we can enable real-time processing fo
 - Performance metrics: Frames Per Second (FPS), logic element utilization, maximum clock frequency, latency per pixel/frame, and power consumption estimates.
 
 ## Tasks:
-## Phase 1 :
+## 🧪 Tasks & Assignments
 
-- Finalize project proposal and team roles.
+### Task 1: Research & Design Specifications  
+**Assigned to:** Rithani & Vishnuvartthan  
+- Study digital filtering math (Gaussian kernel, grayscale formula, etc.)  
+- Choose filter coefficients, kernel dimensions (3×3), and fixed-point format
 
-- Review literature on FPGA-based image filtering.
+---
 
-## Phase 2 :
+### Task 2: Verilog Module Development  
+**Assigned to:** Rithani  
+- Gaussian Blur: Implement weighted convolution logic using line buffers  
+- Moving Average: Use adder trees and bit-shift logic for fast averaging  
+- Grayscale: Apply fixed-point approximation of RGB-to-grayscale formula
 
-- Develop individual Verilog modules for each filter.
+---
 
-- Implement testbenches to verify functionality.
+### Task 3: Simulation & Testbenching  
+**Assigned to:** Vishnuvartthan  
+- Write Verilog testbenches for all modules  
+- Validate outputs against MATLAB filters  
+- Analyze waveform timing and correctness
 
-## Phase 3 :
+---
 
-- Integrate all modules into a single pipeline.
+### Task 4: Pipeline Integration  
+**Assigned to:** Both  
+- Combine all filters into a streaming pipelined system  
+- Implement runtime control logic to switch between filters  
+- Create buffer system for input/output pixel synchronization
 
-- Implement user controls for selecting filters.
+---
 
-## Phase 4 :
+### Task 5: Hardware I/O Integration  
+**Assigned to:** Rithani  
+- Capture input from OV7670 camera  
+- Format pixel stream for filter pipeline  
+- Display final image to HDMI interface
 
-- Test the design on FPGA hardware.
+---
 
-- Optimize for performance and resource usage.
-## Timeline:
-(Provide a timeline or milestones for the project)
+### Task 6: Optimization & Documentation  
+**Assigned to:** Vishnuvartthan  
+- Optimize clock domains, pipeline latency, and resource usage  
+- Collect power estimates, maximum frequency, and utilization stats  
+- Write the final report, README, and prepare the demo video
+
+---
+
+## ⏳ Timeline & Milestones
+
+| Week | Deliverables |
+|------|--------------|
+| **Week 1** | Finalize design scope and roles, research filtering algorithms |
+| **Week 2** | Implement and test grayscale + moving average modules |
+| **Week 3** | Implement Gaussian filter and verify via testbenches |
+| **Week 4** | Integrate filters into a single pipelined system |
+| **Week 5** | Interface with OV7670 camera and output to HDMI |
+| **Week 6** | Run real-time tests and collect performance data |
+| **Week 7** | Optimize design, complete documentation and demonstration |
+
+---
+
+## 📚 References
+
+- Gonzalez, R. C., & Woods, R. E. *Digital Image Processing*  
+- Xilinx Vivado IP & VTC Documentation  
+- OV7670 Camera Datasheet  
+- Various open-source Verilog image filter repositories  
+- MATLAB Image Processing Toolbox
