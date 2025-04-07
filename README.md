@@ -76,7 +76,7 @@ By accelerating these filters in hardware, we can enable real-time processing fo
 
 ### Task 5: Hardware I/O Integration  
 **Assigned to:** Rithani  
-- Capture input from OV7670 camera  
+- Capture input from camera  
 - Format pixel stream for filter pipeline  
 - Display final image to HDMI interface
 
