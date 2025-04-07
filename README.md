@@ -44,7 +44,7 @@ By accelerating these filters in hardware, we can enable real-time processing fo
 ## Tasks & Assignments
 
 ### Task 1: Research & Design Specifications  
-**Assigned to:** Rithani & Vishnuvartthan  
+**Assigned to:** Rithani & Vishnu 
 - Study digital filtering math (Gaussian kernel, grayscale formula, etc.)  
 - Choose filter coefficients, kernel dimensions (3×3), and fixed-point format
 
@@ -59,7 +59,7 @@ By accelerating these filters in hardware, we can enable real-time processing fo
 ---
 
 ### Task 3: Simulation & Testbenching  
-**Assigned to:** Vishnuvartthan  
+**Assigned to:** Vishnu
 - Write Verilog testbenches for all modules  
 - Validate outputs against MATLAB filters  
 - Analyze waveform timing and correctness
@@ -83,7 +83,7 @@ By accelerating these filters in hardware, we can enable real-time processing fo
 ---
 
 ### Task 6: Optimization & Documentation  
-**Assigned to:** Vishnuvartthan  
+**Assigned to:** Vishnu
 - Optimize clock domains, pipeline latency, and resource usage  
 - Collect power estimates, maximum frequency, and utilization stats  
 - Write the final report, README, and prepare the demo video
