@@ -102,7 +102,29 @@ The design was tested using a custom Verilog testbench.
 - **Kernel**: Fixed 3×3 box blur
 - **Simulation Time**:  
   The full image was processed in approximately **~2.52 milliseconds**.
-- **Result**: Verified correct functionality and performance of the streaming architecture.
+
+### Testbench Simulation Waveform
+Shows the timing and data flow of pixel buffering and convolution through the system pipeline.
+
+![Testbench Simulation](images/waveform_3x3.png)
+
+---
+
+### Synthesized Schematic
+Top-level synthesized schematic of the `boxBlur` IP, illustrating the connectivity between controller, kernel, and AXI interfaces.
+
+![Synthesized Schematic](images/schematics_3x3.png)
+
+---
+
+### Implementation Design in Zynq
+Device layout post-implementation on the PYNQ-Z1 target, showing placement of IP and routing.
+
+![Implementation Design](images/implemented_3x3.png)
+
+
+
+
 
 ---
 
