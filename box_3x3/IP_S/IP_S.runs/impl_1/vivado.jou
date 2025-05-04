@@ -1,0 +1,13 @@
+#-----------------------------------------------------------
+# Vivado v2021.2 (64-bit)
+# SW Build 3367213 on Tue Oct 19 02:48:09 MDT 2021
+# IP Build 3369179 on Thu Oct 21 08:25:16 MDT 2021
+# Start of session at: Fri May  2 12:09:15 2025
+# Process ID: 2864
+# Current directory: C:/Omega/IP_S/IP_S.runs/impl_1
+# Command line: vivado.exe -log boxBlur.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source boxBlur.tcl -notrace
+# Log file: C:/Omega/IP_S/IP_S.runs/impl_1/boxBlur.vdi
+# Journal file: C:/Omega/IP_S/IP_S.runs/impl_1\vivado.jou
+# Running On: viz, OS: Windows, CPU Frequency: 3992 MHz, CPU Physical cores: 16, Host memory: 16422 MB
+#-----------------------------------------------------------
+source boxBlur.tcl -notrace

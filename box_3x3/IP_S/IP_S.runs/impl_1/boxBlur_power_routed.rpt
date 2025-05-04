@@ -1,0 +1,452 @@
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+-------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version     : Vivado v.2021.2 (win64) Build 3367213 Tue Oct 19 02:48:09 MDT 2021
+| Date             : Fri May  2 12:10:48 2025
+| Host             : viz running 64-bit major release  (build 9200)
+| Command          : report_power -file boxBlur_power_routed.rpt -pb boxBlur_power_summary_routed.pb -rpx boxBlur_power_routed.rpx
+| Design           : boxBlur
+| Device           : xc7z020clg400-1
+| Design State     : routed
+| Grade            : commercial
+| Process          : typical
+| Characterization : Production
+-------------------------------------------------------------------------------------------------------------------------------------------
+
+Power Report
+
+Table of Contents
+-----------------
+1. Summary
+1.1 On-Chip Components
+1.2 Power Supply Summary
+1.3 Confidence Level
+2. Settings
+2.1 Environment
+2.2 Clock Constraints
+3. Detailed Reports
+3.1 By Hierarchy
+
+1. Summary
+----------
+
++--------------------------+----------------------------------+
+| Total On-Chip Power (W)  | 18.942 (Junction temp exceeded!) |
+| Design Power Budget (W)  | Unspecified*                     |
+| Power Budget Margin (W)  | NA                               |
+| Dynamic (W)              | 17.901                           |
+| Device Static (W)        | 1.041                            |
+| Effective TJA (C/W)      | 11.5                             |
+| Max Ambient (C)          | 0.0                              |
+| Junction Temperature (C) | 125.0                            |
+| Confidence Level         | Low                              |
+| Setting File             | ---                              |
+| Simulation Activity File | ---                              |
+| Design Nets Matched      | NA                               |
++--------------------------+----------------------------------+
+* Specify Design Power Budget using, set_operating_conditions -design_power_budget <value in Watts>
+
+
+1.1 On-Chip Components
+----------------------
+
++--------------------------+-----------+----------+-----------+-----------------+
+| On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
++--------------------------+-----------+----------+-----------+-----------------+
+| Slice Logic              |     4.500 |     2184 |       --- |             --- |
+|   LUT as Logic           |     2.780 |      554 |     53200 |            1.04 |
+|   LUT as Distributed RAM |     1.494 |     1152 |     17400 |            6.62 |
+|   CARRY4                 |     0.092 |       15 |     13300 |            0.11 |
+|   Register               |     0.090 |      270 |    106400 |            0.25 |
+|   F7/F8 Muxes            |     0.038 |       96 |     53200 |            0.18 |
+|   BUFG                   |     0.006 |        1 |        32 |            3.13 |
+|   LUT as Shift Register  |    <0.001 |        2 |     17400 |            0.01 |
+|   Others                 |     0.000 |       24 |       --- |             --- |
+| Signals                  |    11.845 |     1423 |       --- |             --- |
+| Block RAM                |     0.064 |      0.5 |       140 |            0.36 |
+| I/O                      |     1.493 |       23 |       125 |           18.40 |
+| Static Power             |     1.041 |          |           |                 |
+| Total                    |    18.942 |          |           |                 |
++--------------------------+-----------+----------+-----------+-----------------+
+
+
+1.2 Power Supply Summary
+------------------------
+
++-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
+| Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) | Powerup (A) | Budget (A)  | Margin (A) |
++-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
+| Vccint    |       1.000 |    16.746 |      16.447 |      0.299 |       NA    | Unspecified | NA         |
+| Vccaux    |       1.800 |     0.219 |       0.119 |      0.100 |       NA    | Unspecified | NA         |
+| Vcco33    |       3.300 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
+| Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
+| Vcco18    |       1.800 |     0.689 |       0.688 |      0.001 |       NA    | Unspecified | NA         |
+| Vcco15    |       1.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
+| Vcco135   |       1.350 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
+| Vcco12    |       1.200 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
+| Vccaux_io |       1.800 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
+| Vccbram   |       1.000 |     0.029 |       0.002 |      0.027 |       NA    | Unspecified | NA         |
+| MGTAVcc   |       1.000 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
+| MGTAVtt   |       1.200 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
+| MGTVccaux |       1.800 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
+| Vccpint   |       1.000 |     0.473 |       0.000 |      0.473 |       NA    | Unspecified | NA         |
+| Vccpaux   |       1.800 |     0.010 |       0.000 |      0.010 |       NA    | Unspecified | NA         |
+| Vccpll    |       1.800 |     0.003 |       0.000 |      0.003 |       NA    | Unspecified | NA         |
+| Vcco_ddr  |       1.500 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
+| Vcco_mio0 |       1.800 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
+| Vcco_mio1 |       1.800 |     0.000 |       0.000 |      0.000 |       NA    | Unspecified | NA         |
+| Vccadc    |       1.800 |     0.020 |       0.000 |      0.020 |       NA    | Unspecified | NA         |
++-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
+
+
+1.3 Confidence Level
+--------------------
+
++-----------------------------+------------+--------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------+
+| User Input Data             | Confidence | Details                                                | Action                                                                                                             |
++-----------------------------+------------+--------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------+
+| Design implementation state | High       | Design is routed                                       |                                                                                                                    |
+| Clock nodes activity        | Low        | User specified less than 75% of clocks                 | Provide missing clock activity with a constraint file, simulation results or by editing the "By Clock Domain" view |
+| I/O nodes activity          | Low        | More than 75% of inputs are missing user specification | Provide missing input activity with simulation results or by editing the "By Resource Type -> I/Os" view           |
+| Internal nodes activity     | Medium     | User specified less than 25% of internal nodes         | Provide missing internal nodes activity with simulation results or by editing the "By Resource Type" views         |
+| Device models               | High       | Device models are Production                           |                                                                                                                    |
+|                             |            |                                                        |                                                                                                                    |
+| Overall confidence level    | Low        |                                                        |                                                                                                                    |
++-----------------------------+------------+--------------------------------------------------------+--------------------------------------------------------------------------------------------------------------------+
+
+
+2. Settings
+-----------
+
+2.1 Environment
+---------------
+
++-----------------------+------------------------+
+| Ambient Temp (C)      | 25.0                   |
+| ThetaJA (C/W)         | 11.5                   |
+| Airflow (LFM)         | 250                    |
+| Heat Sink             | none                   |
+| ThetaSA (C/W)         | 0.0                    |
+| Board Selection       | medium (10"x10")       |
+| # of Board Layers     | 8to11 (8 to 11 Layers) |
+| Board Temperature (C) | 25.0                   |
++-----------------------+------------------------+
+
+
+2.2 Clock Constraints
+---------------------
+
++-------+--------+-----------------+
+| Clock | Domain | Constraint (ns) |
++-------+--------+-----------------+
+
+
+3. Detailed Reports
+-------------------
+
+3.1 By Hierarchy
+----------------
+
++-------------------------------+-----------+
+| Name                          | Power (W) |
++-------------------------------+-----------+
+| boxBlur                       |    17.901 |
+|   buffer                      |     0.390 |
+|     U0                        |     0.390 |
+|       inst_fifo_gen           |     0.390 |
+|   control                     |    12.813 |
+|     lB0                       |     3.704 |
+|       line_reg_r1_0_63_0_2    |     0.008 |
+|       line_reg_r1_0_63_3_5    |     0.008 |
+|       line_reg_r1_0_63_6_7    |     0.005 |
+|       line_reg_r1_128_191_0_2 |     0.008 |
+|       line_reg_r1_128_191_3_5 |     0.007 |
+|       line_reg_r1_128_191_6_7 |     0.006 |
+|       line_reg_r1_192_255_0_2 |     0.009 |
+|       line_reg_r1_192_255_3_5 |     0.009 |
+|       line_reg_r1_192_255_6_7 |     0.005 |
+|       line_reg_r1_256_319_0_2 |     0.010 |
+|       line_reg_r1_256_319_3_5 |     0.008 |
+|       line_reg_r1_256_319_6_7 |     0.007 |
+|       line_reg_r1_320_383_0_2 |     0.008 |
+|       line_reg_r1_320_383_3_5 |     0.010 |
+|       line_reg_r1_320_383_6_7 |     0.005 |
+|       line_reg_r1_384_447_0_2 |     0.009 |
+|       line_reg_r1_384_447_3_5 |     0.011 |
+|       line_reg_r1_384_447_6_7 |     0.007 |
+|       line_reg_r1_448_511_0_2 |     0.009 |
+|       line_reg_r1_448_511_3_5 |     0.008 |
+|       line_reg_r1_448_511_6_7 |     0.005 |
+|       line_reg_r1_64_127_0_2  |     0.009 |
+|       line_reg_r1_64_127_3_5  |     0.008 |
+|       line_reg_r1_64_127_6_7  |     0.007 |
+|       line_reg_r2_0_63_0_2    |     0.008 |
+|       line_reg_r2_0_63_3_5    |     0.007 |
+|       line_reg_r2_0_63_6_7    |     0.006 |
+|       line_reg_r2_128_191_0_2 |     0.007 |
+|       line_reg_r2_128_191_3_5 |     0.009 |
+|       line_reg_r2_128_191_6_7 |     0.006 |
+|       line_reg_r2_192_255_0_2 |     0.009 |
+|       line_reg_r2_192_255_3_5 |     0.011 |
+|       line_reg_r2_192_255_6_7 |     0.007 |
+|       line_reg_r2_256_319_0_2 |     0.008 |
+|       line_reg_r2_256_319_3_5 |     0.008 |
+|       line_reg_r2_256_319_6_7 |     0.007 |
+|       line_reg_r2_320_383_0_2 |     0.008 |
+|       line_reg_r2_320_383_3_5 |     0.008 |
+|       line_reg_r2_320_383_6_7 |     0.005 |
+|       line_reg_r2_384_447_0_2 |     0.008 |
+|       line_reg_r2_384_447_3_5 |     0.010 |
+|       line_reg_r2_384_447_6_7 |     0.007 |
+|       line_reg_r2_448_511_0_2 |     0.008 |
+|       line_reg_r2_448_511_3_5 |     0.011 |
+|       line_reg_r2_448_511_6_7 |     0.008 |
+|       line_reg_r2_64_127_0_2  |     0.009 |
+|       line_reg_r2_64_127_3_5  |     0.009 |
+|       line_reg_r2_64_127_6_7  |     0.007 |
+|       line_reg_r3_0_63_0_2    |     0.011 |
+|       line_reg_r3_0_63_3_5    |     0.011 |
+|       line_reg_r3_0_63_6_7    |     0.006 |
+|       line_reg_r3_128_191_0_2 |     0.008 |
+|       line_reg_r3_128_191_3_5 |     0.008 |
+|       line_reg_r3_128_191_6_7 |     0.006 |
+|       line_reg_r3_192_255_0_2 |     0.008 |
+|       line_reg_r3_192_255_3_5 |     0.009 |
+|       line_reg_r3_192_255_6_7 |     0.005 |
+|       line_reg_r3_256_319_0_2 |     0.009 |
+|       line_reg_r3_256_319_3_5 |     0.007 |
+|       line_reg_r3_256_319_6_7 |     0.007 |
+|       line_reg_r3_320_383_0_2 |     0.009 |
+|       line_reg_r3_320_383_3_5 |     0.008 |
+|       line_reg_r3_320_383_6_7 |     0.006 |
+|       line_reg_r3_384_447_0_2 |     0.008 |
+|       line_reg_r3_384_447_3_5 |     0.008 |
+|       line_reg_r3_384_447_6_7 |     0.005 |
+|       line_reg_r3_448_511_0_2 |     0.009 |
+|       line_reg_r3_448_511_3_5 |     0.008 |
+|       line_reg_r3_448_511_6_7 |     0.005 |
+|       line_reg_r3_64_127_0_2  |     0.009 |
+|       line_reg_r3_64_127_3_5  |     0.011 |
+|       line_reg_r3_64_127_6_7  |     0.005 |
+|     lB1                       |     2.895 |
+|       line_reg_r1_0_63_0_2    |     0.009 |
+|       line_reg_r1_0_63_3_5    |     0.009 |
+|       line_reg_r1_0_63_6_7    |     0.005 |
+|       line_reg_r1_128_191_0_2 |     0.009 |
+|       line_reg_r1_128_191_3_5 |     0.007 |
+|       line_reg_r1_128_191_6_7 |     0.006 |
+|       line_reg_r1_192_255_0_2 |     0.008 |
+|       line_reg_r1_192_255_3_5 |     0.008 |
+|       line_reg_r1_192_255_6_7 |     0.006 |
+|       line_reg_r1_256_319_0_2 |     0.010 |
+|       line_reg_r1_256_319_3_5 |     0.008 |
+|       line_reg_r1_256_319_6_7 |     0.005 |
+|       line_reg_r1_320_383_0_2 |     0.008 |
+|       line_reg_r1_320_383_3_5 |     0.008 |
+|       line_reg_r1_320_383_6_7 |     0.007 |
+|       line_reg_r1_384_447_0_2 |     0.008 |
+|       line_reg_r1_384_447_3_5 |     0.009 |
+|       line_reg_r1_384_447_6_7 |     0.006 |
+|       line_reg_r1_448_511_0_2 |     0.009 |
+|       line_reg_r1_448_511_3_5 |     0.007 |
+|       line_reg_r1_448_511_6_7 |     0.005 |
+|       line_reg_r1_64_127_0_2  |     0.007 |
+|       line_reg_r1_64_127_3_5  |     0.008 |
+|       line_reg_r1_64_127_6_7  |     0.007 |
+|       line_reg_r2_0_63_0_2    |     0.009 |
+|       line_reg_r2_0_63_3_5    |     0.010 |
+|       line_reg_r2_0_63_6_7    |     0.005 |
+|       line_reg_r2_128_191_0_2 |     0.008 |
+|       line_reg_r2_128_191_3_5 |     0.007 |
+|       line_reg_r2_128_191_6_7 |     0.006 |
+|       line_reg_r2_192_255_0_2 |     0.008 |
+|       line_reg_r2_192_255_3_5 |     0.008 |
+|       line_reg_r2_192_255_6_7 |     0.006 |
+|       line_reg_r2_256_319_0_2 |     0.008 |
+|       line_reg_r2_256_319_3_5 |     0.008 |
+|       line_reg_r2_256_319_6_7 |     0.007 |
+|       line_reg_r2_320_383_0_2 |     0.009 |
+|       line_reg_r2_320_383_3_5 |     0.008 |
+|       line_reg_r2_320_383_6_7 |     0.006 |
+|       line_reg_r2_384_447_0_2 |     0.010 |
+|       line_reg_r2_384_447_3_5 |     0.008 |
+|       line_reg_r2_384_447_6_7 |     0.006 |
+|       line_reg_r2_448_511_0_2 |     0.008 |
+|       line_reg_r2_448_511_3_5 |     0.009 |
+|       line_reg_r2_448_511_6_7 |     0.006 |
+|       line_reg_r2_64_127_0_2  |     0.007 |
+|       line_reg_r2_64_127_3_5  |     0.008 |
+|       line_reg_r2_64_127_6_7  |     0.007 |
+|       line_reg_r3_0_63_0_2    |     0.009 |
+|       line_reg_r3_0_63_3_5    |     0.008 |
+|       line_reg_r3_0_63_6_7    |     0.006 |
+|       line_reg_r3_128_191_0_2 |     0.008 |
+|       line_reg_r3_128_191_3_5 |     0.008 |
+|       line_reg_r3_128_191_6_7 |     0.006 |
+|       line_reg_r3_192_255_0_2 |     0.008 |
+|       line_reg_r3_192_255_3_5 |     0.009 |
+|       line_reg_r3_192_255_6_7 |     0.006 |
+|       line_reg_r3_256_319_0_2 |     0.010 |
+|       line_reg_r3_256_319_3_5 |     0.007 |
+|       line_reg_r3_256_319_6_7 |     0.007 |
+|       line_reg_r3_320_383_0_2 |     0.010 |
+|       line_reg_r3_320_383_3_5 |     0.009 |
+|       line_reg_r3_320_383_6_7 |     0.006 |
+|       line_reg_r3_384_447_0_2 |     0.010 |
+|       line_reg_r3_384_447_3_5 |     0.009 |
+|       line_reg_r3_384_447_6_7 |     0.007 |
+|       line_reg_r3_448_511_0_2 |     0.010 |
+|       line_reg_r3_448_511_3_5 |     0.008 |
+|       line_reg_r3_448_511_6_7 |     0.006 |
+|       line_reg_r3_64_127_0_2  |     0.008 |
+|       line_reg_r3_64_127_3_5  |     0.010 |
+|       line_reg_r3_64_127_6_7  |     0.007 |
+|     lB2                       |     3.012 |
+|       line_reg_r1_0_63_0_2    |     0.008 |
+|       line_reg_r1_0_63_3_5    |     0.007 |
+|       line_reg_r1_0_63_6_7    |     0.006 |
+|       line_reg_r1_128_191_0_2 |     0.008 |
+|       line_reg_r1_128_191_3_5 |     0.009 |
+|       line_reg_r1_128_191_6_7 |     0.006 |
+|       line_reg_r1_192_255_0_2 |     0.009 |
+|       line_reg_r1_192_255_3_5 |     0.008 |
+|       line_reg_r1_192_255_6_7 |     0.007 |
+|       line_reg_r1_256_319_0_2 |     0.009 |
+|       line_reg_r1_256_319_3_5 |     0.009 |
+|       line_reg_r1_256_319_6_7 |     0.008 |
+|       line_reg_r1_320_383_0_2 |     0.008 |
+|       line_reg_r1_320_383_3_5 |     0.010 |
+|       line_reg_r1_320_383_6_7 |     0.008 |
+|       line_reg_r1_384_447_0_2 |     0.008 |
+|       line_reg_r1_384_447_3_5 |     0.008 |
+|       line_reg_r1_384_447_6_7 |     0.006 |
+|       line_reg_r1_448_511_0_2 |     0.008 |
+|       line_reg_r1_448_511_3_5 |     0.010 |
+|       line_reg_r1_448_511_6_7 |     0.005 |
+|       line_reg_r1_64_127_0_2  |     0.012 |
+|       line_reg_r1_64_127_3_5  |     0.008 |
+|       line_reg_r1_64_127_6_7  |     0.006 |
+|       line_reg_r2_0_63_0_2    |     0.008 |
+|       line_reg_r2_0_63_3_5    |     0.008 |
+|       line_reg_r2_0_63_6_7    |     0.005 |
+|       line_reg_r2_128_191_0_2 |     0.007 |
+|       line_reg_r2_128_191_3_5 |     0.009 |
+|       line_reg_r2_128_191_6_7 |     0.006 |
+|       line_reg_r2_192_255_0_2 |     0.008 |
+|       line_reg_r2_192_255_3_5 |     0.009 |
+|       line_reg_r2_192_255_6_7 |     0.006 |
+|       line_reg_r2_256_319_0_2 |     0.008 |
+|       line_reg_r2_256_319_3_5 |     0.009 |
+|       line_reg_r2_256_319_6_7 |     0.005 |
+|       line_reg_r2_320_383_0_2 |     0.008 |
+|       line_reg_r2_320_383_3_5 |     0.007 |
+|       line_reg_r2_320_383_6_7 |     0.005 |
+|       line_reg_r2_384_447_0_2 |     0.008 |
+|       line_reg_r2_384_447_3_5 |     0.008 |
+|       line_reg_r2_384_447_6_7 |     0.007 |
+|       line_reg_r2_448_511_0_2 |     0.009 |
+|       line_reg_r2_448_511_3_5 |     0.009 |
+|       line_reg_r2_448_511_6_7 |     0.006 |
+|       line_reg_r2_64_127_0_2  |     0.009 |
+|       line_reg_r2_64_127_3_5  |     0.009 |
+|       line_reg_r2_64_127_6_7  |     0.005 |
+|       line_reg_r3_0_63_0_2    |     0.011 |
+|       line_reg_r3_0_63_3_5    |     0.009 |
+|       line_reg_r3_0_63_6_7    |     0.007 |
+|       line_reg_r3_128_191_0_2 |     0.009 |
+|       line_reg_r3_128_191_3_5 |     0.010 |
+|       line_reg_r3_128_191_6_7 |     0.006 |
+|       line_reg_r3_192_255_0_2 |     0.007 |
+|       line_reg_r3_192_255_3_5 |     0.009 |
+|       line_reg_r3_192_255_6_7 |     0.006 |
+|       line_reg_r3_256_319_0_2 |     0.008 |
+|       line_reg_r3_256_319_3_5 |     0.009 |
+|       line_reg_r3_256_319_6_7 |     0.005 |
+|       line_reg_r3_320_383_0_2 |     0.008 |
+|       line_reg_r3_320_383_3_5 |     0.009 |
+|       line_reg_r3_320_383_6_7 |     0.006 |
+|       line_reg_r3_384_447_0_2 |     0.008 |
+|       line_reg_r3_384_447_3_5 |     0.009 |
+|       line_reg_r3_384_447_6_7 |     0.008 |
+|       line_reg_r3_448_511_0_2 |     0.008 |
+|       line_reg_r3_448_511_3_5 |     0.010 |
+|       line_reg_r3_448_511_6_7 |     0.006 |
+|       line_reg_r3_64_127_0_2  |     0.009 |
+|       line_reg_r3_64_127_3_5  |     0.010 |
+|       line_reg_r3_64_127_6_7  |     0.006 |
+|     lB3                       |     2.972 |
+|       line_reg_r1_0_63_0_2    |     0.009 |
+|       line_reg_r1_0_63_3_5    |     0.009 |
+|       line_reg_r1_0_63_6_7    |     0.006 |
+|       line_reg_r1_128_191_0_2 |     0.009 |
+|       line_reg_r1_128_191_3_5 |     0.009 |
+|       line_reg_r1_128_191_6_7 |     0.006 |
+|       line_reg_r1_192_255_0_2 |     0.008 |
+|       line_reg_r1_192_255_3_5 |     0.008 |
+|       line_reg_r1_192_255_6_7 |     0.005 |
+|       line_reg_r1_256_319_0_2 |     0.011 |
+|       line_reg_r1_256_319_3_5 |     0.010 |
+|       line_reg_r1_256_319_6_7 |     0.005 |
+|       line_reg_r1_320_383_0_2 |     0.008 |
+|       line_reg_r1_320_383_3_5 |     0.007 |
+|       line_reg_r1_320_383_6_7 |     0.005 |
+|       line_reg_r1_384_447_0_2 |     0.008 |
+|       line_reg_r1_384_447_3_5 |     0.009 |
+|       line_reg_r1_384_447_6_7 |     0.007 |
+|       line_reg_r1_448_511_0_2 |     0.007 |
+|       line_reg_r1_448_511_3_5 |     0.010 |
+|       line_reg_r1_448_511_6_7 |     0.005 |
+|       line_reg_r1_64_127_0_2  |     0.009 |
+|       line_reg_r1_64_127_3_5  |     0.007 |
+|       line_reg_r1_64_127_6_7  |     0.005 |
+|       line_reg_r2_0_63_0_2    |     0.009 |
+|       line_reg_r2_0_63_3_5    |     0.007 |
+|       line_reg_r2_0_63_6_7    |     0.007 |
+|       line_reg_r2_128_191_0_2 |     0.009 |
+|       line_reg_r2_128_191_3_5 |     0.008 |
+|       line_reg_r2_128_191_6_7 |     0.006 |
+|       line_reg_r2_192_255_0_2 |     0.008 |
+|       line_reg_r2_192_255_3_5 |     0.008 |
+|       line_reg_r2_192_255_6_7 |     0.007 |
+|       line_reg_r2_256_319_0_2 |     0.008 |
+|       line_reg_r2_256_319_3_5 |     0.007 |
+|       line_reg_r2_256_319_6_7 |     0.006 |
+|       line_reg_r2_320_383_0_2 |     0.009 |
+|       line_reg_r2_320_383_3_5 |     0.008 |
+|       line_reg_r2_320_383_6_7 |     0.005 |
+|       line_reg_r2_384_447_0_2 |     0.009 |
+|       line_reg_r2_384_447_3_5 |     0.011 |
+|       line_reg_r2_384_447_6_7 |     0.005 |
+|       line_reg_r2_448_511_0_2 |     0.008 |
+|       line_reg_r2_448_511_3_5 |     0.008 |
+|       line_reg_r2_448_511_6_7 |     0.006 |
+|       line_reg_r2_64_127_0_2  |     0.010 |
+|       line_reg_r2_64_127_3_5  |     0.008 |
+|       line_reg_r2_64_127_6_7  |     0.006 |
+|       line_reg_r3_0_63_0_2    |     0.008 |
+|       line_reg_r3_0_63_3_5    |     0.010 |
+|       line_reg_r3_0_63_6_7    |     0.006 |
+|       line_reg_r3_128_191_0_2 |     0.009 |
+|       line_reg_r3_128_191_3_5 |     0.007 |
+|       line_reg_r3_128_191_6_7 |     0.007 |
+|       line_reg_r3_192_255_0_2 |     0.008 |
+|       line_reg_r3_192_255_3_5 |     0.008 |
+|       line_reg_r3_192_255_6_7 |     0.005 |
+|       line_reg_r3_256_319_0_2 |     0.010 |
+|       line_reg_r3_256_319_3_5 |     0.007 |
+|       line_reg_r3_256_319_6_7 |     0.006 |
+|       line_reg_r3_320_383_0_2 |     0.009 |
+|       line_reg_r3_320_383_3_5 |     0.008 |
+|       line_reg_r3_320_383_6_7 |     0.006 |
+|       line_reg_r3_384_447_0_2 |     0.009 |
+|       line_reg_r3_384_447_3_5 |     0.009 |
+|       line_reg_r3_384_447_6_7 |     0.006 |
+|       line_reg_r3_448_511_0_2 |     0.007 |
+|       line_reg_r3_448_511_3_5 |     0.008 |
+|       line_reg_r3_448_511_6_7 |     0.006 |
+|       line_reg_r3_64_127_0_2  |     0.009 |
+|       line_reg_r3_64_127_3_5  |     0.008 |
+|       line_reg_r3_64_127_6_7  |     0.005 |
+|   kernel                      |     2.461 |
++-------------------------------+-----------+
+
+

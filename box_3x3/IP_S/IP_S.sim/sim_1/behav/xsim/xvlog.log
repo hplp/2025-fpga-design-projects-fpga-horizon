@@ -1,0 +1,12 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Omega/IP_S/IP_S.gen/sources_1/ip/fifo_generator_0/sim/fifo_generator_0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module fifo_generator_0
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Omega/IP_S/IP_S.srcs/sources_1/new/boxBlur.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module boxBlur
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Omega/IP_S/IP_S.srcs/sources_1/new/control.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module control
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Omega/IP_S/IP_S.srcs/sources_1/new/kernel.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module kernel
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Omega/IP_S/IP_S.srcs/sources_1/new/lineBuffer.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module lineBuffer
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Omega/IP_S/IP_S.srcs/sim_1/new/tb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tb

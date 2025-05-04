@@ -1,0 +1,11 @@
+0.7
+2020.2
+Oct 19 2021
+03:16:22
+C:/Omega/IP_S/IP_S.gen/sources_1/ip/fifo_generator_0/sim/fifo_generator_0.v,1746112574,verilog,,C:/Omega/IP_S/IP_S.srcs/sources_1/new/boxBlur.v,,fifo_generator_0,,,,,,,,
+C:/Omega/IP_S/IP_S.sim/sim_1/behav/xsim/glbl.v,1634335545,verilog,,,,glbl,,,,,,,,
+C:/Omega/IP_S/IP_S.srcs/sim_1/new/tb.v,1746212534,verilog,,,,tb,,,,,,,,
+C:/Omega/IP_S/IP_S.srcs/sources_1/new/boxBlur.v,1746116107,verilog,,C:/Omega/IP_S/IP_S.srcs/sources_1/new/control.v,,boxBlur,,,,,,,,
+C:/Omega/IP_S/IP_S.srcs/sources_1/new/control.v,1746115726,verilog,,C:/Omega/IP_S/IP_S.srcs/sources_1/new/kernel.v,,control,,,,,,,,
+C:/Omega/IP_S/IP_S.srcs/sources_1/new/kernel.v,1746115728,verilog,,C:/Omega/IP_S/IP_S.srcs/sources_1/new/lineBuffer.v,,kernel,,,,,,,,
+C:/Omega/IP_S/IP_S.srcs/sources_1/new/lineBuffer.v,1745872914,verilog,,C:/Omega/IP_S/IP_S.srcs/sim_1/new/tb.v,,lineBuffer,,,,,,,,
