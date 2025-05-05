@@ -1,5 +1,4 @@
 # Final Report: Image Processing on FPGA
-[Link to the Presentation File](https://drive.google.com/file/d/1RSJ4zUEbG3CQAAyqpU0TgafpjWqgjzlL/view?usp=sharing)
 
 ## Team Members:
 - Rithani Priyanga Coimbatore Kannan (hwu6hc)
