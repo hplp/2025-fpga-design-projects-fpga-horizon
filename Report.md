@@ -11,7 +11,15 @@ The **3×3 box blur IP** was designed around a pipelined streaming architecture 
 - **Convolution Kernel**: Performs the averaging filter operation over a 3×3 window by summing pixel values and dividing the result by 9. The kernel has a fixed latency of 2 cycles and operates in a fully pipelined manner.
 
 
-The module was verified using a custom Verilog testbench, demonstrating efficient processing of a 512×512 grayscale image in approximately **2.52 milliseconds**. The IP was packaged and integrated into a Vivado block design targeting the PYNQ-Z1 board. However, overlay generation for Python-based deployment was incomplete at that time.
+The module was verified using a custom Verilog testbench, demonstrating efficient processing of a 512×512 grayscale image in approximately **2.52 milliseconds**. 
+![Testbench Simulation](images/waveform_3x3.png)
+
+The IP was packaged and integrated into a Vivado block design targeting the PYNQ-Z1 board.
+
+![Synthesized Schematic](images/schematics_3x3.png)
+
+![Implementation Design](images/implemented_3x3.png)
+
 
 ## 7×7 Box Blur IP
 To extend functionality, we developed a 7×7 box blur IP that supports **24-bit RGB images** and higher resolutions (up to **1024×1024**). Enhancements include:
@@ -20,7 +28,9 @@ To extend functionality, we developed a 7×7 box blur IP that supports **24-bit 
 - Expanded buffer management to handle increased data bandwidth.
 - Color image compatibility with 24-bit pixel width.
 
-Both **3×3** and **7×7** kernels are now implemented as separate IP blocks, packaged and bitstream-ready. However, additional optimization is required to improve synthesis performance and resource usage.
+Both **3×3** and **7×7** kernels are now implemented as separate IP blocks, packaged and bitstream-ready. However, more optimization is required for the design to improve synthesis performance and resource usage.
+
+
 
 ## Compatibility and Comparison with Existing Overlays
 
