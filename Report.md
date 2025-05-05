@@ -10,6 +10,7 @@ The **3×3 box blur IP** was designed around a pipelined streaming architecture 
 - **Buffer Controller**: A finite state machine orchestrates read/write operations from the buffers, assembles 3×3 pixel windows, and ensures valid data is passed to the kernel in a streaming fashion.
 - **Convolution Kernel**: Performs the averaging filter operation over a 3×3 window by summing pixel values and dividing the result by 9. The kernel has a fixed latency of 2 cycles and operates in a fully pipelined manner.
 
+
 The module was verified using a custom Verilog testbench, demonstrating efficient processing of a 512×512 grayscale image in approximately **2.52 milliseconds**. The IP was packaged and integrated into a Vivado block design targeting the PYNQ-Z1 board. However, overlay generation for Python-based deployment was incomplete at that time.
 
 ## 7×7 Box Blur IP
@@ -87,5 +88,26 @@ To support custom filters like our **7×7 box blur**, we explored building a use
     ```commandline
     $  scp xv2MyFirstOverlay.* xilinx@<pynq-board-ip>:/home/xilinx/proj/test
     ```
+
+
+## Summary
+
+This project delivered a scalable image filtering IP architecture that supports both **3×3** and **7×7 box blur filters** using a fully pipelined hardware implementation. The 3×3 design operates on 8-bit grayscale images, while the 7×7 version extends support to **24-bit color images** and larger resolutions up to **1024×1024 pixels**. Both IPs use AXI-Stream interfaces for high-throughput data transfer and are packaged as reusable IP cores in Vivado.
+
+While these IPs are not yet compatible with OpenCV’s high-level APIs, a comparison with an existing PYNQ overlay (`xv2Filter2DDilate.bit`) showed significant performance gains when using hardware acceleration. However, that overlay supports only 3×3 kernels for a fixed set
+
+
+
+
+
+
+
+## References
+
+- https://github.com/Xilinx/PYNQ-ComputerVision Official repository providing PYNQ overlays and examples for hardware-accelerated computer vision applications.
+- https://github.com/Xilinx/xfopencv A library of OpenCV-like functions optimized for Xilinx FPGAs. Used to build high-performance image processing pipelines.
+- https://github.com/vipinkmenon/SpatialFilter
+  A repository demonstrating spatial filter design and implementation for image processing using custom hardware.
+
 
 
