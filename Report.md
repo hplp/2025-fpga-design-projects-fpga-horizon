@@ -39,12 +39,12 @@ To support custom filters like our **7×7 box blur**, we explored building a use
 ### Prerequisites
 
 1. **Clone the PYNQ Computer Vision Repository**:
-   ```bash
+   ```commandline
    git clone https://github.com/Xilinx/PYNQ-ComputerVision.git <your_pynqcv_folder>
    ```
 
 2. **Clone the xfOpenCV Repository**:
-   ```bash
+   ```commandline
    git clone https://github.com/denolf/xfopencv.git <your_xfopencv_folder>
    cd <your_xfopencv_folder>
    git checkout <release_number>
@@ -53,7 +53,7 @@ To support custom filters like our **7×7 box blur**, we explored building a use
 - Download the platform sysroot archive and untar it.
 
 4. **Set Environment Variables:**:
-   ```bash
+   ```commandline
    setenv XFOPENCV_PATH <your_xfopencv_folder>
    ```
 
@@ -62,18 +62,30 @@ To support custom filters like our **7×7 box blur**, we explored building a use
 
 
 
-## Building a Custom xfOpenCV Overlay
-
-To build a custom xfOpenCV overlay, follow these steps:
-
----
-
-### 1. Create a New Overlay Folder
-
-```bash
-cd <your_pynqcv_folder>/overlays
-mkdir myFirstOverlay
-```
-
+## [Building a Custom xfOpenCV Overlay](https://github.com/Xilinx/PYNQ-ComputerVision/blob/master/overlays/README.md#building-your-overlay)
+  + create an overlay folder in /<your_pynqcv_folder>/overlays, for instance myFirstOverlay
+  + Copy and adapt the [/<your_pynqcv_folder>/overlays/cvXfUserSpecific/CMakeLists.txt](./cvXfUserSpecific/CMakeLists.txt) to /<your_pynqcv_folder>/overlays/myFirstOverlay
+    + line 41, choose your overlay name, for instance xv2MyFirstOverlay
+    + line 45, choose the CV components offloaded to PL in your overlay, restricted to a subset of filter2D, remap, dilate, stereoBM and canny
+    + lines 47-49: optionally overwrite some of the default instantiation paramaters (defined in the [setDefaultInstantiationParameters CMake macro](../frameworks/cmakeModules/rulesForSDxXfOpenCV.cmake#L37)) by user specific ones 
+  + create a build folder in /<your_pynqcv_folder>/overlays/myFirstOverlay run CMake:
+    ```commandline
+    $ cd /<your_pynqcv_folder>/overlays/myFirstOverlay
+    $ mkdir build; cd build
+    $ cmake .. -DCMAKE_TOOLCHAIN_FILE=../../../frameworks/cmakeModules/cmakeModulesXilinx/toolchain_sds.cmake -DSDxPlatform=/your_PynqPlatform_folder/ultra -DSDxClockID=1 -DusePL=ON -DnoBitstream=OFF -DnoSDCardImage=ON -DSDxArch=arm64
+    ```
+  + Note that the clock ID for the platform selects the desired clock frequency for the overlay design. In the case of the Ultra96 platform, the following IDs are available: 0=100MHz, 1=150MHz, 2=250MHz, 3=300MHz.
+  + run make for the target with your chosen overlay name
+    ```commandline
+    $ make xv2MyFirstOverlay
+    ```
+  + run make install. This will copy three files (xv2MyFirstOverlay.tcl, xv2MyFirstOverlay.so, xv2MyFirstOverlay.bit) to /<your_pynqcv_folder>/overlays/myFirstOverlay/libarm64 
+    ```commandline
+    $ make install
+    ```
+  + copy the content of /<your_pynqcv_folder>/overlays/myFirstOverlay/build/libarm64 to a test folder (for instance ~/proj/test) on your pynq board:
+    ```commandline
+    $  scp xv2MyFirstOverlay.* xilinx@<pynq-board-ip>:/home/xilinx/proj/test
+    ```
 
 
