@@ -28,7 +28,14 @@ To extend functionality, we developed a 7×7 box blur IP that supports **24-bit 
 - Expanded buffer management to handle increased data bandwidth.
 - Color image compatibility with 24-bit pixel width.
 
-Both **3×3** and **7×7** kernels are now implemented as separate IP blocks, packaged and bitstream-ready. However, more optimization is required for the design to improve synthesis performance and resource usage.
+Both **3×3** and **7×7** kernels are now implemented as separate IP blocks, packaged and bitstream-ready. However, more optimization is required for the design to improve synthesis performance and resource usage. Below are the LUT and Flip-flops utilization for both 3x3 and 7x7 designs.
+
+Utilization overview of 3x3 IP
+![utilz_3)](images/utilz_3x3.png)
+
+Utilization overview of 7x7 IP
+![utilz_7)](images/utilz_7x7.png)
+
 
 
 
@@ -178,14 +185,7 @@ To support custom filters like our **7×7 box blur**, we explored building a use
 
 ## Summary
 
-This project delivered a scalable image filtering IP architecture that supports both **3×3** and **7×7 box blur filters** using a fully pipelined hardware implementation. The 3×3 design operates on 8-bit grayscale images, while the 7×7 version extends support to **24-bit color images** and larger resolutions up to **1024×1024 pixels**. Both IPs use AXI-Stream interfaces for high-throughput data transfer and are packaged as reusable IP cores in Vivado.
-
-While these IPs are not yet compatible with OpenCV’s high-level APIs, a comparison with an existing PYNQ overlay (`xv2Filter2DDilate.bit`) showed significant performance gains when using hardware acceleration. However, that overlay supports only 3×3 kernels for a fixed set
-
-
-
-
-
+This project delivered a scalable image filtering IP architecture that supports both **3×3** and **7×7 box blur filters** using a fully pipelined hardware implementation. The 3×3 design operates on 8-bit grayscale images, while the 7×7 version extends support to **24-bit color images** and larger resolutions up to **1024×1024 pixels**. Both IPs use AXI-Stream interfaces for high-throughput data transfer and are packaged as reusable IP cores in Vivado. We implemented the design for Pynq Z1 board, and generated the bitstream, but we weren't able to use the bit overlay in the jupyter notebook. While these IPs are not yet compatible with OpenCV’s high-level APIs, a comparison with an existing PYNQ overlay (`xv2Filter2DDilate.bit`) showed significant performance gains when using hardware acceleration. However, that overlay supports only 3×3 kernels for a fixed set.  However, we are looking forward to develop compatible custom overlays for the OpenCV libraries, that will be specific to kernel types and flexible in terms of choosing the size of the filter kernel. 
 
 
 ## References
