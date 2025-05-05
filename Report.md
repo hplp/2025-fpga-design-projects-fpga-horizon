@@ -137,6 +137,20 @@ xFimg[:] = image[:]
 xFimg.flush()
 ```
 
+```python
+from pynq.lib.video import *ode
+hdmi_in.configure(PIXEL_GRAY)
+hdmi_out.configure(hdmi_in.mode)
+
+hdmi_in.cacheable_frames = False
+hdmi_out.cacheable_frames = False
+
+hdmi_in.start()
+hdmi_out.start()
+
+```
+
+
 #### Filter Kernel
 
 Box Blur Kernel: Uniform average filter over a 3×3 region.
@@ -160,6 +174,23 @@ Hardware-Accelerated Filtering
 xv2.filter2D(xFimg, -1, kernel, dst=xFout, borderType=cv2.BORDER_CONSTANT)
 ```
 
+Below for using HDMI In and Out for 500 frames
+```python
+for _ in range(500):
+        outframe = hdmi_out.newframe()
+        inframe = hdmi_in.readframe()
+        xv2.filter2D(inframe, -1, kernel_g, dst=outframe, borderType=cv2.BORDER_CONSTANT)
+        hdmi_out.writeframe(outframe)
+        inframe.freebuffer()
+```
+
+Displaying the processed Image
+```python
+import PIL.Image
+
+image = PIL.Image.fromarray(outframe)
+image
+```
 
 #### Filter execution time comparison
 
