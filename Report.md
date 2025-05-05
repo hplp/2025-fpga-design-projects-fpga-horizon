@@ -11,7 +11,7 @@ The **3×3 box blur IP** was designed around a pipelined streaming architecture 
 - **Convolution Kernel**: Performs the averaging filter operation over a 3×3 window by summing pixel values and dividing the result by 9. The kernel has a fixed latency of 2 cycles and operates in a fully pipelined manner.
 
 
-The module was verified using a custom Verilog testbench, demonstrating efficient processing of a 512×512 grayscale image in approximately **2.52 milliseconds**. 
+The module was verified using a custom Verilog testbench, demonstrating efficient processing of a 512×512 grayscale image in approximately **2.65 milliseconds**. 
 ![Testbench Simulation](images/waveform_3x3.png)
 
 The IP was packaged and integrated into a Vivado block design targeting the PYNQ-Z1 board.
@@ -36,11 +36,90 @@ Both **3×3** and **7×7** kernels are now implemented as separate IP blocks, pa
 
 We have implemented our IPs with Zynq Processing System and generated bistream out of it, but we weren't able to use them in the Jupyter notebook in Pynq Z1 board, as our IPs are currently not compatible with OpenCV’s Python interface, and making direct comparison with OpenCV APIs unsuitable. Instead, we explored and benchmarked an existing overlay: `xv2Filter2DDilate.bit` from the [PYNQ ComputerVision repository](https://github.com/Xilinx/PYNQ-ComputerVision).
 
-### Observations:
+### xfOpenCV Pynq Overlays:
 
 - This overlay supports only 3×3 kernels for filters like **Box**, **Gaussian**, **Sobel** and more.
 - Regardless of the filter type, the execution time remains nearly identical due to floating-point operations for every pixel.
 - The overlay is flexible but **limited to 3×3 kernels** and does not allow customization for larger filters.
+- All the Jupyter Notebooks are uploaded in the repository.
+
+## Code Walkthrough: Using `xv2Filter2DDilate` Overlay with PYNQ
+This example demonstrates how to use a hardware-accelerated 2D filter on the PYNQ platform using the `xv2Filter2DDilate` overlay from the `pynq_cv` package. It includes loading an image, allocating memory, applying the filter using a kernel, and storing the output.
+
+---
+
+## 📦 Code Breakdown
+
+```python
+from pynq import Overlay, Xlnk
+import pynq_cv.overlays.xv2Filter2DDilate as xv2
+import numpy as np
+import cv2
+```
+Imports the Overlay class to load FPGA bitstreams and Xlnk for memory allocation.
+
+```python
+ol = Overlay("/usr/local/lib/python3.6/dist-packages/pynq_cv/overlays/xv2Filter2DDilate.bit")
+Xlnk.set_allocator_library("/usr/local/lib/python3.6/dist-packages/pynq_cv/overlays/xv2Filter2DDilate.so")
+mem_manager = Xlnk()
+```
+Loads the xv2Filter2DDilate FPGA overlay bitstream to the programmable logic.
+Specifies the shared object (.so) file used for memory allocation compatible with this overlay.
+
+```python
+mem_manager = Xlnk()
+```
+
+Creates an instance of the Xlnk memory manager to allocate memory in the CMA (Contiguous Memory Allocator) region. However, this is deprecated, and so use pynq.allocate(shape, dtype) in newer versions of PYNQ (v2.7+).
+
+```python
+image = cv2.imread("bellatrix.jpg", cv2.IMREAD_GRAYSCALE)
+xFimg = mem_manager.cma_array((h, w), np.uint8)
+xFimg[:] = scaled_image[:]
+xFout = mem_manager.cma_array((h, w), np.uint8)
+```
+Allocates FPGA-accessible memory (CMA buffer) for the input image of size (h, w) with 8-bit unsigned integers.
+Copies the image (e.g., scaled_image) into the input buffer xFimg. 
+Allocates another CMA buffer for the output image, same shape and type.
+
+Alternatively, using pynq.allocate,
+
+```python
+xFimg = allocate(shape=(height, width), dtype=np.uint8)
+xFout = allocate(shape=(height, width), dtype=np.uint8)
+
+xFimg[:] = image[:]
+xFimg.flush()
+```
+
+#### Filter Kernel
+
+Box Blur Kernel: Uniform average filter over a 3×3 region.
+```python
+kernel = np.ones((3,3),np.float32)/9.0
+```
+
+Gaussian Blur Kernel for smoothing the image.
+```python
+kernel = np.array([[1.0,0.0,-1.0],[2.0,0.0,-2.0],[1.0,0.0,-1.0]],np.float32)
+```
+
+Sobel Kernel used for edge detection (horizontal gradient).
+```python
+kernel = np.array([[0.0625,0.125,0.0625],[0.125,0.25,0.125],[0.0625,0.125,0.0625]],np.float32)
+```
+
+Hardware-Accelerated Filtering
+
+```python
+xv2.filter2D(xFimg, -1, kernel, dst=xFout, borderType=cv2.BORDER_CONSTANT)
+```
+
+
+#### Filter execution time comparison
+
+![execution_time)](images/filter_execution_time_comparison.png)
+
 
 ## Building a Custom xfOpenCV Overlay
 
