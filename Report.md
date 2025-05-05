@@ -46,9 +46,6 @@ We have implemented our IPs with Zynq Processing System and generated bistream o
 ## Code Walkthrough: Using `xv2Filter2DDilate` Overlay with PYNQ
 This example demonstrates how to use a hardware-accelerated 2D filter on the PYNQ platform using the `xv2Filter2DDilate` overlay from the `pynq_cv` package. It includes loading an image, allocating memory, applying the filter using a kernel, and storing the output.
 
----
-
-## 📦 Code Breakdown
 
 ```python
 from pynq import Overlay, Xlnk
