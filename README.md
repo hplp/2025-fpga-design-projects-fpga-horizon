@@ -260,6 +260,14 @@ To support custom filters like our **7×7 box blur**, we explored building a use
     ```
 
 
+## Technology Stack:
+- Software: Xilinx Vivado, Jupyter Notebook
+- Hardware Platform: Xilinx Pynq-Z1 FPGA 
+- Languages: Verilog
+- Software Tools: Xilinx Vivado, Vitis-HLS
+- Peripheral Interfaces: Camera Module, HDMI, Display
+
+
 ## Summary
 
 This project delivered a scalable image filtering IP architecture that supports both **3×3** and **7×7 box blur filters** using a fully pipelined hardware implementation. The 3×3 design operates on 8-bit grayscale images, while the 7×7 version extends support to **24-bit color images** and larger resolutions up to **1024×1024 pixels**. Both IPs use AXI-Stream interfaces for high-throughput data transfer and are packaged as reusable IP cores in Vivado. We implemented the design for Pynq Z1 board, and generated the bitstream, but we weren't able to use the bit overlay in the jupyter notebook. While these IPs are not yet compatible with OpenCV’s high-level APIs, a comparison with an existing PYNQ overlay (`xv2Filter2DDilate.bit`) showed significant performance gains when using hardware acceleration. However, that overlay supports only 3×3 kernels for a fixed set.  However, we are looking forward to develop compatible custom overlays for the OpenCV libraries, that will be specific to kernel types and flexible in terms of choosing the size of the filter kernel. 
