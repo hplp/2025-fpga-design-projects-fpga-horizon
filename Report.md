@@ -1,5 +1,9 @@
-# Final Report: Image Processing with FPGA
+# Final Report: Image Processing on FPGA
 [Link to the Presentation File](https://drive.google.com/file/d/1RSJ4zUEbG3CQAAyqpU0TgafpjWqgjzlL/view?usp=sharing)
+
+## Team Members:
+- Rithani Priyanga Coimbatore Kannan (hwu6hc)
+- Vishnuvartthan Govindaraj (fpp6vt) 
 
 ## Description
 The goal of this project is to implement computationally intensive digital image filters on an FPGA platform to achieve real-time image processing. Processing images in real-time can be computationally expensive, especially when applying complex filters to high-resolution images. Software-based solutions struggle with the latency and processing time required for live image analysis, making hardware acceleration through FPGAs more effective. By accelerating the image filtering process on FPGA hardware, we aim to significantly improve processing time, enabling real-time applications such as video stream processing, edge detection for vision systems, and preprocessing stages for AI-based systems. The FPGA's parallel processing capability will allow for faster data manipulation than general-purpose processors, making it suitable for high-speed image processing tasks.
@@ -127,7 +131,7 @@ Allocates FPGA-accessible memory (CMA buffer) for the input image of size (h, w)
 Copies the image (e.g., scaled_image) into the input buffer xFimg. 
 Allocates another CMA buffer for the output image, same shape and type.
 
-Alternatively, using pynq.allocate,
+Alternatively, using pynq.allocate for CMA,
 
 ```python
 xFimg = allocate(shape=(height, width), dtype=np.uint8)
@@ -137,6 +141,7 @@ xFimg[:] = image[:]
 xFimg.flush()
 ```
 
+For Video with HDMI in and out,
 ```python
 from pynq.lib.video import *ode
 hdmi_in.configure(PIXEL_GRAY)
@@ -168,13 +173,13 @@ Sobel Kernel used for edge detection (horizontal gradient).
 kernel = np.array([[0.0625,0.125,0.0625],[0.125,0.25,0.125],[0.0625,0.125,0.0625]],np.float32)
 ```
 
-Hardware-Accelerated Filtering
+#### Hardware-Accelerated Filtering
 
 ```python
 xv2.filter2D(xFimg, -1, kernel, dst=xFout, borderType=cv2.BORDER_CONSTANT)
 ```
 
-Below for using HDMI In and Out for 500 frames
+Below code is uses input from HDMI for 500 frames
 ```python
 for _ in range(500):
         outframe = hdmi_out.newframe()
@@ -184,11 +189,11 @@ for _ in range(500):
         inframe.freebuffer()
 ```
 
-Displaying the processed Image
+#### Displaying the processed Image
 ```python
 import PIL.Image
 
-image = PIL.Image.fromarray(outframe)
+image = PIL.Image.fromarray(xFout)
 image
 ```
 
