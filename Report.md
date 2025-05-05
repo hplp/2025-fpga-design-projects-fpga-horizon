@@ -1,7 +1,11 @@
 # Final Report: Image Processing with FPGA
+[Link to the Presentation File](https://drive.google.com/file/d/1RSJ4zUEbG3CQAAyqpU0TgafpjWqgjzlL/view?usp=sharing)
+
+## Description
+The goal of this project is to implement computationally intensive digital image filters on an FPGA platform to achieve real-time image processing. Processing images in real-time can be computationally expensive, especially when applying complex filters to high-resolution images. Software-based solutions struggle with the latency and processing time required for live image analysis, making hardware acceleration through FPGAs more effective. By accelerating the image filtering process on FPGA hardware, we aim to significantly improve processing time, enabling real-time applications such as video stream processing, edge detection for vision systems, and preprocessing stages for AI-based systems. The FPGA's parallel processing capability will allow for faster data manipulation than general-purpose processors, making it suitable for high-speed image processing tasks.
 
 ## Overview
-This project involved the development of a custom image processing hardware IP targeting FPGA-based acceleration on the PYNQ platform. The initial implementation delivered a streaming box blur filter using a **3×3 kernel** for **grayscale images** (8-bit per pixel), supporting real-time processing via AXI-Stream interfaces. In the final phase, this design was scaled to support a **7×7 kernel** and **24-bit color images**, enabling the IP to handle more complex image processing tasks on relatively higher-resolution inputs (up to 1024×1024 pixels).
+This project involved the development of a custom image processing hardware IP targeting FPGA-based acceleration on the PYNQ platform. The initial implementation delivered a streaming box blur filter using a **3×3 kernel** for **grayscale images** (8-bit per pixel), supporting real-time processing via AXI-Stream interfaces. In the final phase, this design was scaled to support a **7×7 kernel** and **24-bit color images**, enabling the IP to image processing on relatively higher-resolution inputs (up to 1024×1024 pixels).
 
 ## 3×3 Box Blur IP
 The **3×3 box blur IP** was designed around a pipelined streaming architecture with three main modules:
